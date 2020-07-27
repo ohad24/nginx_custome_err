@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  nginx: 
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./server.conf:/etc/nginx/conf.d/server.conf
+      - ./html/403.html:/usr/share/nginx/html/403.html
+    ports:
+      - 80:80
+    networks: 
+      - test
+
+
+networks:
+  test:
+    external:
+      name: test
